@@ -1,4 +1,4 @@
-import { removeUser, setUser } from '../store/slices/userSlice';
+import { removeUser, setUser } from '../../store/slices/user-slice';
 import { useAppSelector, useAppDispatch } from "./redux-hooks";
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { useEffect } from 'react';
@@ -32,7 +32,7 @@ export function useAuth() {
     });
 
     return () => unsubscribe();
-  });
+  },[auth, dispatch]);
 
   return {
     isAuth: !!email,
