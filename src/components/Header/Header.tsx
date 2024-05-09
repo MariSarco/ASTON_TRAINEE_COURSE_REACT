@@ -1,6 +1,6 @@
 import { HeaderLogo } from './HeaderLogo';
 import { NavLink } from 'react-router-dom'
-import { removeUser } from '../store/slices/userSlice';
+import { removeUser } from '../../store/slices/user-slice';
 import { useAppDispatch } from '../hooks/redux-hooks';
 import { useAuth, signOut } from "../hooks/use-auth";
 

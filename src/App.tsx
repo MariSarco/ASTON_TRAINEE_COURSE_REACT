@@ -4,7 +4,7 @@ import { Router } from './router/Router';
 import { Footer } from './components/Footer/Footer';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './components/store';
+import { store } from './store';
 
 import './firebase';
 import './App.css';

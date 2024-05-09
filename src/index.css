@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .grid-tmp {
+    @apply grid grid-cols-[repeat(auto-fill,minmax(215px,1fr))] gap-4 pt-4 px-10 sm:px-0
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,5 +26,8 @@ code {
   display: flex;
   flex-direction: column;
   background-color: #27272a;
-  /* color: white; */
+  color: white;
+}
+input{
+  color: black;
 }
