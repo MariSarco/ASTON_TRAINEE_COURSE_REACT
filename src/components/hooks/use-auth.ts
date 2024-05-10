@@ -16,7 +16,7 @@ export function useAuth() {
   const auth = getAuth();
   const dispatch = useAppDispatch();
   const {email, token, id} = useAppSelector(state => state.user);
-
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {

@@ -1,22 +1,12 @@
 import { HeaderLogo } from './HeaderLogo';
 import { NavLink } from 'react-router-dom'
-import { removeUser } from '../../store/slices/user-slice';
-import { useAppDispatch } from '../hooks/redux-hooks';
 import { useAuth, signOut } from "../hooks/use-auth";
 
 
 
 export function Header() {
-
-    const dispatch = useAppDispatch();
     const {isAuth} = useAuth();
-
-    // const handleLogOut = () => {
-    //     dispatch(removeUser());
-    //     signOut();
-    //     navigate('/');
-    //   };
-    console.log(isAuth)
+    
     return (isAuth?
         <header>
             <div className='container py-3 mx-auto px-4 min-h-16 flex flex-col sm:flex-row gap-4 justify-between items-center text-white'>
@@ -31,7 +21,7 @@ export function Header() {
                     <NavLink to="/history" className="bg-transparent hover:bg-white font-semibold hover:text-amber-500 py-1 px-2 border border-white hover:border-transparent rounded">
                         History
                     </NavLink>
-                    <NavLink to="/" onClick={() => {dispatch(removeUser()); signOut()}} className="bg-transparent hover:bg-white text-white font-semibold hover:text-amber-500 py-1 px-2 border border-white hover:border-transparent rounded">
+                    <NavLink to="/" onClick={() => {signOut()}} className="bg-transparent hover:bg-white text-white font-semibold hover:text-amber-500 py-1 px-2 border border-white hover:border-transparent rounded">
                         SignOut
                     </NavLink>
                 </nav>
