@@ -34,6 +34,7 @@ export const filmSlice = createApi({
         url: "/api/v2.2/films",
         params: {
           _limit: limit,
+          page: 2
         },
       }),
     }),

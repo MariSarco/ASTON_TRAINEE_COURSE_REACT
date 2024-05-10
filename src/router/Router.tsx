@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage } from '../pages/HomePage';
-import { SignInPage } from '../pages/SignInPage';
-import { SignUpPage } from '../pages/SignUpPage';
-import { FavoritesPage } from '../pages/FavoritesPage';
-import { HistoryPage } from '../pages/HistoryPage';
-import { Search } from '../pages/Search';
+import { HomePage } from '../pages/home-page';
+import { SignInPage } from '../pages/signin-page';
+import { SignUpPage } from '../pages/signup-page';
+import { FavoritesPage } from '../pages/favorites-page';
+import { HistoryPage } from '../pages/history-page';
+import { Search } from '../pages/search';
 
 export function Router() {
     return (
