@@ -1,4 +1,4 @@
-import { FilmCard } from "../components/FilmCard/FilmCard";
+import { FilmCard } from "../components/FilmCards/film-card";
 import { useAppSelector } from "../components/hooks/redux-hooks";
 import { getFavoriteFilmsSelector } from "../store/slices/favorites/favorites-selectors";
 

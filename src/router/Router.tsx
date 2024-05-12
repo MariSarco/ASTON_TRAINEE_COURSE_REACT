@@ -5,6 +5,7 @@ import { SignUpPage } from "../pages/signup-page";
 import { FavoritesPage } from "../pages/favorites-page";
 import { HistoryPage } from "../pages/history-page";
 import { Search } from "../pages/search";
+import { FilmPage } from "../pages/film-page";
 
 export function Router() {
   return (
@@ -15,6 +16,7 @@ export function Router() {
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="/history" element={<HistoryPage />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/film/:id" element={<FilmPage />} />
     </Routes>
   );
 }

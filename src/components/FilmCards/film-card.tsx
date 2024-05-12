@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import {
   addToFavorites,
   removeFromFavorites,
 } from "../../store/services/favorites-service";
-import { getAuth } from "firebase/auth";
+import { useAppSelector } from "../hooks/redux-hooks";
 
 interface FilmCardProps {
   id: number;
@@ -26,8 +24,7 @@ export const FilmCard = ({
   rating,
   isFavorite,
 }: FilmCardProps) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const user = useAppSelector((state) => state.user);
   const navigate = useNavigate();
 
   const handleAddToFavoritesHandle = () => {
