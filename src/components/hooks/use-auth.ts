@@ -1,7 +1,7 @@
-import { removeUser, setUser } from '../../store/slices/user-slice';
+import { removeUser, setUser } from "../../store/slices/user-slice";
 import { useAppSelector, useAppDispatch } from "./redux-hooks";
-import { onAuthStateChanged, getAuth } from 'firebase/auth';
-import { useEffect } from 'react';
+import { onAuthStateChanged, getAuth } from "firebase/auth";
+import { useEffect } from "react";
 
 const signOut = async () => {
   const auth = getAuth();
@@ -15,8 +15,8 @@ const signOut = async () => {
 export function useAuth() {
   const auth = getAuth();
   const dispatch = useAppDispatch();
-  const {email, token, id} = useAppSelector(state => state.user);
-  
+  const { email, token, id } = useAppSelector((state) => state.user);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -32,7 +32,7 @@ export function useAuth() {
     });
 
     return () => unsubscribe();
-  },[auth, dispatch]);
+  }, [auth, dispatch]);
 
   return {
     isAuth: !!email,
@@ -42,4 +42,4 @@ export function useAuth() {
   };
 }
 
-export {signOut}
+export { signOut };

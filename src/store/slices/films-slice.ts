@@ -30,11 +30,11 @@ export const filmSlice = createApi({
   }),
   endpoints: (builder) => ({
     getFilms: builder.query<DataInterface, number>({
-      query: (limit: number = 5) => ({
+      query: (limit = 5) => ({
         url: "/api/v2.2/films",
         params: {
           _limit: limit,
-          page: 2
+          page: 2,
         },
       }),
     }),
