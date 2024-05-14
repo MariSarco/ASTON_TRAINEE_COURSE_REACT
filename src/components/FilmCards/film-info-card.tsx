@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import {
   addToFavorites,
   removeFromFavorites,
-} from "../../store/services/favorites-service";
+} from "../../store/services/farebase-service";
 import { FilmReadyInterface } from "../../types/types";
 import { useAppSelector } from "../hooks/redux-hooks";
 

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { ParamsFilmType } from "../types/types";
-import { useGetFilmInfoQuery } from "../store/slices/films-slice";
+import { useGetFilmInfoQuery } from "../store/slices/films/films-slice";
 import { useAppSelector } from "../components/hooks/redux-hooks";
 import { getFilmWithFavoritesSelector } from "../store/slices/favorites/favorites-selectors";
 import { FilmInfoCard } from "../components/FilmCards/film-info-card";

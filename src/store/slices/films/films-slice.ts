@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { FilmInterface, FilmInterfaceFromApi } from "../../types/types";
-import { FilmResponseInterface, DataInterface } from "../types/film-types";
+import { FilmInterface, FilmInterfaceFromApi } from "../../../types/types";
+import { FilmResponseInterface, DataInterface, SearchFilmInterface, SearchResultInterface } from "../../types/film-types";
 
 const convertFilmForUi = ({
   kinopoiskId,
@@ -46,7 +46,17 @@ export const filmSlice = createApi({
         return convertFilmForUi(response);
       },
     }),
+    searchFilm: builder.query<SearchFilmInterface[], string>({
+      query: (keyword: string) => ({
+        url: `/api/v2.1/films/search-by-keyword?keyword=${keyword}`,
+      }),
+      transformResponse: (
+        response: SearchResultInterface
+      ): SearchFilmInterface[] => {
+        return response.films;
+      },
+    }),
   }),
 });
 
-export const { useGetFilmsQuery, useGetFilmInfoQuery } = filmSlice;
+export const { useGetFilmsQuery, useGetFilmInfoQuery, useSearchFilmQuery, useLazySearchFilmQuery } = filmSlice;

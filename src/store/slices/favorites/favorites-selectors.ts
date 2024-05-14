@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../../../store";
-import { filmSlice } from "../films-slice";
+import { filmSlice } from "../films/films-slice";
 
 const getFavoritesSelector = (state: RootState) => state.favorites;
 const selectAllFilms = filmSlice.endpoints.getFilms.select(5);

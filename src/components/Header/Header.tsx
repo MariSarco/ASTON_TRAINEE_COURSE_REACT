@@ -1,8 +1,9 @@
 import { HeaderLogo } from "./HeaderLogo";
 import { NavLink } from "react-router-dom";
 import { useAuth, signOut } from "../hooks/use-auth";
-import { useGetFilmsQuery } from "../../store/slices/films-slice";
+import { useGetFilmsQuery } from "../../store/slices/films/films-slice";
 import { useFavorites } from "../hooks/use-favorites";
+import { SearchInput } from "../search-input";
 
 export function Header() {
   const { isAuth } = useAuth();
@@ -15,7 +16,7 @@ export function Header() {
         <NavLink to="/">
           <HeaderLogo />
         </NavLink>
-
+        <SearchInput />
         <nav className="flex items-center gap-2">
           <NavLink
             to="/favorites"
@@ -47,7 +48,7 @@ export function Header() {
         <NavLink to="/">
           <HeaderLogo />
         </NavLink>
-
+        <SearchInput />
         <nav className="flex items-center gap-2">
           <NavLink
             to="/signin"
