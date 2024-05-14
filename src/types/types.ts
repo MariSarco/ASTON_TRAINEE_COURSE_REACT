@@ -22,7 +22,9 @@ export interface FilmsInterface {
   year: number;
   isFavorite: boolean;
 }
-
+export interface FilmReadyInterface extends FilmInterface {
+  isFavorite: boolean;
+}
 export interface FilmInterface {
   id: number;
   posterUrl: string;

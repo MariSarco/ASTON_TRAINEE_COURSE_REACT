@@ -1,7 +1,7 @@
 import { resetFavorites } from "../../store/slices/favorites/favorites-slice";
 import { useAppSelector, useAppDispatch } from "./redux-hooks";
 import { useEffect } from "react";
-import { getFavoritesFilms } from "../../store/services/favorites-service";
+import { getFavoritesFilms } from "../../store/services/farebase-service";
 import { getFavoriteFilmsIsFetchingSelector } from "../../store/slices/favorites/favorites-selectors";
 
 export function useFavorites() {

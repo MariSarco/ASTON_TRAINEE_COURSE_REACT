@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import {
   addToFavorites,
   removeFromFavorites,
-} from "../../store/services/favorites-service";
-import { getAuth } from "firebase/auth";
+} from "../../store/services/farebase-service";
+import { useAppSelector } from "../hooks/redux-hooks";
 
 interface FilmCardProps {
   id: number;
@@ -26,8 +24,7 @@ export const FilmCard = ({
   rating,
   isFavorite,
 }: FilmCardProps) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const user = useAppSelector((state) => state.user);
   const navigate = useNavigate();
 
   const handleAddToFavoritesHandle = () => {
@@ -53,10 +50,7 @@ export const FilmCard = ({
   };
 
   return (
-    <div
-      data-testid="media-card"
-      className="shadow-lg border rounded-md overflow-hidden p-4 flex flex-col"
-    >
+    <div className="shadow-lg border rounded-md overflow-hidden p-4 flex flex-col">
       <Link to={`/film/${id}`} className="max-h-90">
         <div className="mb-4">
           <p

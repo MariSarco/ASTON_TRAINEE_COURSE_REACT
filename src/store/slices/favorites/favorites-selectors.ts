@@ -1,9 +1,9 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../../../store";
-import { filmSlice } from "../films-slice";
+import { filmSlice } from "../films/films-slice";
 
 const getFavoritesSelector = (state: RootState) => state.favorites;
-const selectFilmsBlaBla = filmSlice.endpoints.getFilms.select(5);
+const selectAllFilms = filmSlice.endpoints.getFilms.select(5);
 
 export const getFavoriteFilmsSelector = createSelector(
   getFavoritesSelector,
@@ -16,14 +16,30 @@ export const getFavoriteFilmsIsFetchingSelector = createSelector(
 );
 
 export const getFilmsWithFavoritesSelector = createSelector(
-  [selectFilmsBlaBla, getFavoritesSelector],
+  [selectAllFilms, getFavoritesSelector],
   (films, favorites) => {
-    console.log(films);
     return films.data?.items.map((film) => {
       const isFavorite = favorites.films.some(
         (item) => film.kinopoiskId === item.id
       );
       return { ...film, isFavorite };
     });
+  }
+);
+
+export const getFilmWithFavoritesSelector = createSelector(
+  [
+    getFavoritesSelector,
+    (state, filmId: string) =>
+      filmSlice.endpoints.getFilmInfo.select(filmId)(state),
+  ],
+  (favorites, film) => {
+    if (!film.data) {
+      return null;
+    }
+    const isFavorite = favorites.films.some(
+      (item) => film.data?.id === item.id
+    );
+    return { ...film.data, isFavorite };
   }
 );

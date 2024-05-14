@@ -37,3 +37,32 @@ export const removeFromFavorites = async (id: number, email: string) => {
     console.error(`Error from Firebase ${error}`);
   }
 };
+
+export const addToHistory = async (searchText: string, email: string) => {
+  try {
+    await setDoc(doc(db, `${email}history`, searchText), { searchText });
+  } catch (error) {
+    console.error(`Error from Firebase ${error}`);
+  }
+};
+
+export const getHistory = async (email: string) => {
+  try {
+    const docSnap = await getDocs(collection(db, `${email}history`));
+
+    return docSnap.docs.map((doc) => ({
+      ...(doc.data() as { searchText: string }),
+    }));
+  } catch (error) {
+    console.error("Error from firebase", error);
+  }
+};
+
+export const removeFromHistory = async (searchText: string, email: string) => {
+  try {
+    await deleteDoc(doc(db, `${email}history`, String(searchText)));
+    await getFavoritesFilms(email);
+  } catch (error) {
+    console.error(`Error from Firebase ${error}`);
+  }
+};
