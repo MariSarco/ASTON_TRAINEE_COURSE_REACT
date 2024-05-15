@@ -63,18 +63,16 @@ export const FilmInfoCard = ({ film }: { film: FilmReadyInterface }) => {
           </button>
         )}
       </div>
-      <div className="flex flex-col flex-1">
-        <h1 className="line-clamp-1">{nameRu}</h1>
+      <div className="flex flex-col gap-y-8 flex-1 text-accent">
+        <h1 className="text-xl font-bold">{nameRu}</h1>
         <p>{description}</p>
         <div>
           <p>
-            <span className="text-muted-foreground font-semibold">Year:</span>
+            <span className="text-muted font-semibold">Year:</span>
             {year}
           </p>
           <p>
-            <span className="text-muted-foreground font-semibold">
-              Raiting:
-            </span>
+            <span className="text-muted font-semibold">Raiting:</span>
             {ratingKinopoisk}
           </p>
         </div>

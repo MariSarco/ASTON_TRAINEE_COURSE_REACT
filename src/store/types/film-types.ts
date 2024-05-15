@@ -41,5 +41,5 @@ export interface SearchFilmInterface {
   ratingVoteCount: number;
   type: string;
   year: string;
-  isFavorite: boolean
+  isFavorite: boolean;
 }

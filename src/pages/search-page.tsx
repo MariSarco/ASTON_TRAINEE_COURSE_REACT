@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-import { FilmCard } from "../components/FilmCards/film-card";
+import { FilmCard } from "../components/film-cards/film-card";
 import { useSearchFilmQuery } from "../store/slices/films/films-slice";
 
 interface FilmSearchResultsInterface {
