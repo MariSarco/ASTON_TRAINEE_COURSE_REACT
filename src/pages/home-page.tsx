@@ -2,6 +2,8 @@ import { FilmCard } from "../components/film-cards/film-card";
 import { FilmsInterface } from "../types/types";
 import { useAppSelector } from "../components/hooks/redux-hooks";
 import { getFilmsWithFavoritesSelector } from "../store/slices/favorites/favorites-selectors";
+import { useFavorites } from "../components/hooks/use-favorites";
+import { useAuth } from "../components/hooks/use-auth";
 
 export interface FilmListPropsType {
   data: FilmsInterface[];
@@ -27,10 +29,13 @@ const FilmList = ({ data }: FilmListPropsType) => {
 };
 
 const HomePage = () => {
+  
   const films = useAppSelector(getFilmsWithFavoritesSelector);
+  const { isAuth } = useAuth();
+  const { isFetching } = useFavorites();
 
-  if (!films) {
-    return "Loading";
+  if (!films || !isFetching && isAuth) {
+    return <span className="text-accent">Loading films...</span>;
   }
   return (
     <div className="grid-tmp">

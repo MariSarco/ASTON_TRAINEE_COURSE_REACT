@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Form } from "./auth-form";
-import { setUser } from "../store/slices/user-slice";
-import { useAppDispatch } from "./hooks/redux-hooks";
+import { setUser } from "../../store/slices/user/user-slice";
+import { useAppDispatch } from "../hooks/redux-hooks";
 
-const SignIn = () => {
+const SignUp = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleSignIn = (email: string, password: string) => {
+  const handleRegister = (email: string, password: string) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         console.log(user);
         dispatch(
@@ -22,17 +22,17 @@ const SignIn = () => {
         );
         navigate("/");
       })
-      .catch(() => alert("Invalid user!"));
+      .catch(console.error);
   };
 
   return (
     <Form
-      name="Authorization"
+      name="Registration"
       className="bg-amber-500 border border-amber-500 hover:bg-amber-600 text-white font-bold py-1 px-2 rounded"
-      title="SignIn"
-      handleClick={handleSignIn}
+      title="SignUp"
+      handleClick={handleRegister}
     />
   );
 };
 
-export { SignIn };
+export { SignUp };

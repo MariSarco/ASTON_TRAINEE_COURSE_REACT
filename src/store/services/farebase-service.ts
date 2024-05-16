@@ -61,7 +61,7 @@ export const getHistory = async (email: string) => {
 export const removeFromHistory = async (searchText: string, email: string) => {
   try {
     await deleteDoc(doc(db, `${email}history`, String(searchText)));
-    await getFavoritesFilms(email);
+    await getHistory(email);
   } catch (error) {
     console.error(`Error from Firebase ${error}`);
   }

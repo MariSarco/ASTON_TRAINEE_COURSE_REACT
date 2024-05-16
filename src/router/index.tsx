@@ -6,7 +6,7 @@ import {
   routesNoAuthOnly,
   routesPublic,
 } from "./router-config";
-import { Loading } from "../components/loading";
+import { Loading } from "../components/helpers/loading";
 import { useAuth } from "../components/hooks/use-auth";
 
 export function Router() {

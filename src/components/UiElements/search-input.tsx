@@ -1,14 +1,14 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import { useAppSelector } from "./hooks/redux-hooks";
-import { useDebounce } from "./hooks/use-debounce";
-import { useSearchFilmQuery } from "../store/slices/films/films-slice";
+import { useAppSelector } from "../hooks/redux-hooks";
+import { useDebounce } from "../hooks/use-debounce";
+import { useSearchFilmQuery } from "../../store/slices/films/films-slice";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 
-import { addToHistory } from "../store/services/farebase-service";
-import { Suggest } from "./suggest/suggest";
+import { addToHistory } from "../../store/services/farebase-service";
+import { Suggest } from "../suggest/suggest";
 
 export const SearchInput = () => {
   const user = useAppSelector((state) => state.user);
@@ -24,7 +24,7 @@ export const SearchInput = () => {
   const [isShowSuggest, setIsShowSuggest] = useState(false);
 
   const navigate = useNavigate();
-  const searchText = useDebounce(searchTerm, 200);
+  const searchText = useDebounce(searchTerm, 500);
 
   const { data } = useSearchFilmQuery(searchText)!;
 

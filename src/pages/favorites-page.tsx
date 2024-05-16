@@ -6,7 +6,7 @@ export function FavoritesPage() {
   const favoritesFilms = useAppSelector(getFavoriteFilmsSelector);
   return (
     <div className="grid-tmp">
-      {favoritesFilms.length === 0 && <h1>Favorites list is empty</h1>}
+      {favoritesFilms.length === 0 && <span className="text-accent">Favorites list is empty</span>}
       {favoritesFilms.map((film) => {
         return (
           <FilmCard
