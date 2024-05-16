@@ -1,9 +1,9 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-
 import { FilmCard } from "../components/film-cards/film-card";
-import { useSearchFilmQuery } from "../store/slices/films/films-slice";
+import { getSearchFilmsWithFavoritesSelector } from "../store/slices/films/films-selectors";
+import { useAppSelector } from "../components/hooks/redux-hooks";
 
 interface FilmSearchResultsInterface {
   searchTerm: string;
@@ -12,7 +12,9 @@ interface FilmSearchResultsInterface {
 export const FilmSearchResults = ({
   searchTerm,
 }: FilmSearchResultsInterface) => {
-  const { data } = useSearchFilmQuery(searchTerm);
+  const data = useAppSelector((state) =>
+    getSearchFilmsWithFavoritesSelector(state, searchTerm)
+  );
 
   if (data) {
     return (
