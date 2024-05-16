@@ -1,5 +1,5 @@
-import { SuggestType } from "./suggest.props";
-import { SuggestItem } from "./suggest-item";
+import { SuggestType } from "../suggest/suggest.props";
+import { SuggestItem } from "../suggest/suggest-item";
 
 export const Suggest = ({ films, searchText }: SuggestType) => {
   return (
