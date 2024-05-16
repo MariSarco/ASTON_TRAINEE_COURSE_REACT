@@ -8,17 +8,10 @@ export function HistoryPage() {
   const user = useAppSelector((state) => state.user);
   const { history } = useHistory();
 
-  // useEffect(() => {
-  //   if (user?.email) {
-  //     getHistory(user.email).then((data) => setHistory(data || []));
-  //   }
-  // }, [user?.email]);
-
   const handleRemoveFromHistory = (searchText: string) => {
     if (user?.email) {
       removeFromHistory(searchText, user.email);
     }
-    
   };
 
   const handleOnClick = (searchText: string) =>
@@ -26,7 +19,9 @@ export function HistoryPage() {
 
   return (
     <div className="flex flex-1 flex-col mb-20 min-h-[60vh]">
-      {Boolean(history?.length < 1) && <span className="text-accent">History is empty</span>}
+      {Boolean(history?.length < 1) && (
+        <span className="text-accent">History is empty</span>
+      )}
       {user?.email &&
         history.map((item) => (
           <div
