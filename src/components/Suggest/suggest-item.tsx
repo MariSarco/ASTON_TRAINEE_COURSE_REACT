@@ -24,7 +24,7 @@ export const SuggestItem = ({
             />
           )}
         </div>
-        <div className="whitespace-pre-wrap text-start line-clamp-1">
+        <div className="whitespace-pre-wrap text-start line-clamp-1 text-white">
           {filmName}
         </div>
       </div>

@@ -54,10 +54,10 @@ export const FilmCard = ({
       <Link to={`/film/${id}`} className="max-h-90">
         <div className="mb-4">
           <p
-            className="font-semibold text-xl line-clamp-1"
+            className="font-semibold text-xl line-clamp-1 text-accent"
             title={`${title}`}
           >{`${title}`}</p>
-          <div className="text-muted-foreground ">
+          <div className="text-muted ">
             <p className="text-sm">{year}</p>
           </div>
         </div>
@@ -67,7 +67,7 @@ export const FilmCard = ({
           alt={`${title}`}
         />
       </Link>
-      <div className="flex gap-1 items-center justify-between text-muted-foreground ">
+      <div className="flex gap-1 items-center justify-between text-muted ">
         {rating}
         {isFavorite ? (
           <button onClick={handleRemoveFromFavorites}>

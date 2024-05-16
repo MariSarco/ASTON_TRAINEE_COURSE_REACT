@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Form } from "./Form";
+import { Form } from "./auth-form";
 import { setUser } from "../store/slices/user-slice";
 import { useAppDispatch } from "./hooks/redux-hooks";
 
@@ -26,7 +26,12 @@ const SignIn = () => {
   };
 
   return (
-    <Form className="text-white" title="SignIn" handleClick={handleSignIn} />
+    <Form
+      name="Authorization"
+      className="bg-amber-500 border border-amber-500 hover:bg-amber-600 text-white font-bold py-1 px-2 rounded"
+      title="SignIn"
+      handleClick={handleSignIn}
+    />
   );
 };
 

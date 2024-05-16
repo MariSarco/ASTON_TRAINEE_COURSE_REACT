@@ -34,7 +34,7 @@ export function HistoryPage() {
         history.map((item) => (
           <div
             key={item.searchText}
-            className="flex justify-between font-semibold border-b py-3"
+            className="flex justify-between font-semibold border-b py-3 text-accent"
           >
             <div
               className=" cursor-pointer"
