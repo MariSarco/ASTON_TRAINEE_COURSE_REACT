@@ -1,15 +1,11 @@
 import { HeaderLogo } from "./header-logo";
 import { NavLink } from "react-router-dom";
 import { useAuth, signOut } from "../hooks/use-auth";
-import { useGetFilmsQuery } from "../../store/slices/films/films-slice";
-import { useFavorites } from "../hooks/use-favorites";
-import { SearchInput } from "../search-input";
+import { SearchInput } from "../UiElements/search-input";
 import { ThemeToggle } from "../theme/theme-toggle";
 
 export function Header() {
   const { isAuth } = useAuth();
-  useFavorites();
-  useGetFilmsQuery(5);
 
   return (
     <header>

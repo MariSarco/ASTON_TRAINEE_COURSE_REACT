@@ -7,7 +7,6 @@ const { FavoritesPage } = lazily(() => import("../pages/favorites-page"));
 const { HistoryPage } = lazily(() => import("../pages/history-page"));
 const { SearchPage } = lazily(() => import("../pages/search-page"));
 const { FilmPage } = lazily(() => import("../pages/film-page"));
-// const { NotFound } = lazily(() => import('@/pages/notFound'))
 
 export const routesPublic = [
   {
@@ -23,14 +22,6 @@ export const routesPublic = [
     path: "/film/:id",
     component: FilmPage,
   },
-  // {
-  //   path: '/not-found',
-  //   component: NotFound,
-  // },
-  // {
-  //   path: '*',
-  //   component: NotFound,
-  // },
 ];
 
 export const routesAuthOnly = [

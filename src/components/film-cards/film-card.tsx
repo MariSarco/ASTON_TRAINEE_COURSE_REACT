@@ -1,9 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import {
-  addToFavorites,
-  removeFromFavorites,
-} from "../../store/services/farebase-service";
-import { useAppSelector } from "../hooks/redux-hooks";
+import { Link } from "react-router-dom";
+import { LikeButton } from "../UiElements/like-button";
 
 interface FilmCardProps {
   id: number;
@@ -24,29 +20,14 @@ export const FilmCard = ({
   rating,
   isFavorite,
 }: FilmCardProps) => {
-  const user = useAppSelector((state) => state.user);
-  const navigate = useNavigate();
-
-  const handleAddToFavoritesHandle = () => {
-    if (user?.email) {
-      addToFavorites(
-        {
-          id: id,
-          nameRu: name,
-          description: name,
-          posterUrl: image,
-          year: year,
-          ratingKinopoisk: rating,
-        },
-        user.email
-      );
-    }
-  };
-
-  const handleRemoveFromFavorites = () => {
-    if (user?.email) {
-      removeFromFavorites(id, user.email);
-    }
+  const film = {
+    id: id,
+    nameRu: name,
+    description: name,
+    posterUrl: image,
+    year: year,
+    ratingKinopoisk: rating,
+    isFavorite: isFavorite,
   };
 
   return (
@@ -69,27 +50,7 @@ export const FilmCard = ({
       </Link>
       <div className="flex gap-1 items-center justify-between text-muted ">
         {rating}
-        {isFavorite ? (
-          <button onClick={handleRemoveFromFavorites}>
-            <img
-              src="public/heart-on-svgrepo-com.svg"
-              alt="Favorite heart on"
-            />
-          </button>
-        ) : (
-          <button
-            onClick={
-              user?.email
-                ? handleAddToFavoritesHandle
-                : () => navigate("/signin")
-            }
-          >
-            <img
-              src="public/heart-off-svgrepo-com.svg"
-              alt="Favorite heart off"
-            />
-          </button>
-        )}
+        <LikeButton isFavorite={isFavorite} film={film} />
       </div>
     </div>
   );

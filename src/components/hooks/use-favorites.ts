@@ -16,4 +16,6 @@ export function useFavorites() {
       dispatch(resetFavorites());
     }
   }, [user?.email, isFetching]);
+
+  return { isFetching };
 }

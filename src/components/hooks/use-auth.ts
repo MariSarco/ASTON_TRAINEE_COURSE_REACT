@@ -1,7 +1,7 @@
-import { removeUser, setUser } from "../../store/slices/user-slice";
+import { removeUser, setUser } from "../../store/slices/user/user-slice";
 import { useAppSelector, useAppDispatch } from "./redux-hooks";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const signOut = async () => {
   const auth = getAuth();
@@ -16,8 +16,10 @@ export function useAuth() {
   const auth = getAuth();
   const dispatch = useAppDispatch();
   const { email, token, id } = useAppSelector((state) => state.user);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const userData = {
@@ -26,8 +28,10 @@ export function useAuth() {
           id: user.uid,
         };
         dispatch(setUser(userData));
+        setIsLoading(false);
       } else {
         dispatch(removeUser());
+        setIsLoading(false);
       }
     });
 
@@ -35,6 +39,7 @@ export function useAuth() {
   }, [auth, dispatch]);
 
   return {
+    isLoading: isLoading,
     isAuth: !!email,
     email,
     token,
