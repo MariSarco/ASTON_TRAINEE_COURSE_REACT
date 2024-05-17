@@ -23,7 +23,7 @@
 - [x] Есть применение **Контекст API** Ссылка на [код](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/components/theme/theme-provider.tsx)
 - [x] Есть применение **предохранителя** Ссылка на [код](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/App.tsx)
 - [x] Есть хотя бы один **кастомный хук** Ссылка на [код](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/components/hooks/use-auth.ts)
-- [x] Хотя бы несколько компонентов используют **PropTypes** Ссылка на [код](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/pages/search-page.tsx) и [второй]()
+- [x] Хотя бы несколько компонентов используют **PropTypes** Ссылка на [первый](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/pages/search-page.tsx) и [второй](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/pages/home-page.tsx)
 - [x] Поиск не должен триггерить много запросов к серверу (**debounce**) Ссылка на [код](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/components/hooks/use-debounce.ts)
 - [x] Есть применение **lazy + Suspense** Ссылка на код [lazy](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/router/router-config.ts) [Suspense](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/router/index.tsx)
 
