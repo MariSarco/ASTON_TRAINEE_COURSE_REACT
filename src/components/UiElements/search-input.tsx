@@ -8,7 +8,7 @@ import { useSearchFilmQuery } from "../../store/slices/films/films-slice";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 
 import { addToHistory } from "../../store/services/farebase-service";
-import { Suggest } from "../suggest/suggest";
+import { Suggest } from "../Suggest/suggest";
 
 export const SearchInput = () => {
   const user = useAppSelector((state) => state.user);
