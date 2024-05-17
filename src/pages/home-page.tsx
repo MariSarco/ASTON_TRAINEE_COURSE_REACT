@@ -4,7 +4,7 @@ import { useAppSelector } from "../components/hooks/redux-hooks";
 import { getFilmsWithFavoritesSelector } from "../store/slices/favorites/favorites-selectors";
 import { useFavorites } from "../components/hooks/use-favorites";
 import { useAuth } from "../components/hooks/use-auth";
-
+import PropTypes from "prop-types";
 export interface FilmListPropsType {
   data: FilmsInterface[];
 }
@@ -28,13 +28,16 @@ const FilmList = ({ data }: FilmListPropsType) => {
   );
 };
 
+FilmList.propTypes = {
+  data: PropTypes.array.isRequired,
+};
+
 const HomePage = () => {
-  
   const films = useAppSelector(getFilmsWithFavoritesSelector);
   const { isAuth } = useAuth();
   const { isFetching } = useFavorites();
 
-  if (!films || !isFetching && isAuth) {
+  if (!films || (!isFetching && isAuth)) {
     return <span className="text-accent">Loading films...</span>;
   }
   return (
