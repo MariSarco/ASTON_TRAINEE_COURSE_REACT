@@ -53,6 +53,7 @@ export const SearchInput = () => {
           placeholder="Search"
           onFocus={onFocusHandler}
           onBlur={onBlurHandler}
+          data-testid='SearchInput'
         />
         <button className="bg-accent text-amber-500 rounded-l-none w-10 py-2 px-1 rounded-l-none border border-accent rounded-xl hover:bg-amber-500 hover:text-white ">
           <MagnifyingGlassIcon className="w-6 h-6" />
