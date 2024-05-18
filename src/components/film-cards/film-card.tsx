@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { LikeButton } from "../UiElements/like-button";
+import { memo } from "react";
 
 interface FilmCardProps {
   id: number;
@@ -11,7 +12,7 @@ interface FilmCardProps {
   isFavorite: boolean;
 }
 
-export const FilmCard = ({
+export const FilmCard = memo(({
   id,
   name,
   title,
@@ -37,6 +38,7 @@ export const FilmCard = ({
           <p
             className="font-semibold text-xl line-clamp-1 text-accent"
             title={`${title}`}
+            data-testid='film-card-title'
           >{`${title}`}</p>
           <div className="text-muted ">
             <p className="text-sm">{year}</p>
@@ -54,4 +56,4 @@ export const FilmCard = ({
       </div>
     </div>
   );
-};
+},(prevProps, nextProps) => prevProps.id===nextProps.id && prevProps.isFavorite===nextProps.isFavorite);

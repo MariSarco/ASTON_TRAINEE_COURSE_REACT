@@ -5,6 +5,7 @@ import { getFilmsWithFavoritesSelector } from "../store/slices/favorites/favorit
 import { useFavorites } from "../components/hooks/use-favorites";
 import { useAuth } from "../components/hooks/use-auth";
 import PropTypes from "prop-types";
+import { memo } from "react";
 export interface FilmListPropsType {
   data: FilmsInterface[];
 }
@@ -32,7 +33,7 @@ FilmList.propTypes = {
   data: PropTypes.array.isRequired,
 };
 
-const HomePage = () => {
+const HomePage = memo(() => {
   const films = useAppSelector(getFilmsWithFavoritesSelector);
   const { isAuth } = useAuth();
   const { isFetching } = useFavorites();
@@ -45,5 +46,5 @@ const HomePage = () => {
       <FilmList data={films} />
     </div>
   );
-};
+});
 export { HomePage };

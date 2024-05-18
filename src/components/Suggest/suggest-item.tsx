@@ -13,7 +13,7 @@ export const SuggestItem = ({
   const handleClick = () => navigate(`/film/${filmId}`);
 
   return (
-    <div onClick={handleClick}>
+    <div onClick={handleClick} data-testid='SuggestItem'>
       <div className="flex items-center gap-2 font-medium bg-black bg-opacity-90 cursor-pointer">
         <div className="min-h-16 min-w-12">
           {posterUrl && (
