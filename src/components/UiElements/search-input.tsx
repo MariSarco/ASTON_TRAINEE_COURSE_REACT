@@ -1,17 +1,15 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-
 import { useAppSelector } from "../hooks/redux-hooks";
 import { useDebounce } from "../hooks/use-debounce";
 import { useSearchFilmQuery } from "../../store/slices/films/films-slice";
-
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
-
 import { addToHistory } from "../../store/services/farebase-service";
 import { Suggest } from "../Suggest/suggest";
+import { getUser } from "../../store/slices/user/user-selector";
 
 export const SearchInput = () => {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector(getUser);
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState(
     searchParams.get("searchText") || ""
@@ -38,7 +36,6 @@ export const SearchInput = () => {
       await addToHistory(searchTerm, user.email);
     }
     navigate(`/search?searchText=${searchTerm}`);
-    setSearchTerm("");
   };
 
   const onFocusHandler = () => setIsShowSuggest(true);

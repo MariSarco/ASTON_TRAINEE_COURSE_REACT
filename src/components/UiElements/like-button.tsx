@@ -5,13 +5,14 @@ import {
 } from "../../store/services/farebase-service";
 import { FilmReadyInterface } from "../../types/types";
 import { useAppSelector } from "../hooks/redux-hooks";
+import { getUser } from "../../store/slices/user/user-selector";
 interface LikeButtonProps {
   isFavorite: boolean;
   film: FilmReadyInterface;
 }
 export const LikeButton = ({ isFavorite, film }: LikeButtonProps) => {
   const navigate = useNavigate();
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector(getUser);
 
   const handleAddToFavoritesHandle = () => {
     if (user?.email) {
