@@ -19,7 +19,7 @@ import {
 export const getFavoritesFilms = async (email: string) => {
   const favRef = collection(db, `${email}favorites`);
   const data = await getDocsFromServer(favRef);
-  const favoriteFilms = data.docs.map((doc) => {
+  const favoriteFilms: FilmInterface[] = data.docs.map((doc) => {
     const filmData = doc.data();
     return {
       id: filmData.id,
