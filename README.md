@@ -42,6 +42,7 @@
 - [x] Настроен **CI/CD** Бейдж в шапке Readme (использую vercal)
 - [x] Используются **мемоизированные селекторы** Использовал но не было того что можно закешировать Ссылка на [код](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/src/store/slices/favorites/favorites-selectors.ts)
 - [x] Проведена оптимизация приложения. Изначально проверял есть ли фильм в списке избранного в компоненте каждый раз. После изменений, свойство isFavorite добавлял к списку фильмов при рендере и в последствии при рендере карточки лишь брал это значение [до](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/pull/3) [после](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/pull/4)
+- [x] Добавлены тесты [первый](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/tests/test-2.spec.ts) [второй](https://github.com/MariSarco/ASTON_TRAINEE_COURSE_REACT/blob/main/tests/test-3.spec.ts)
 
 ### **Дополнительно**
 

@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { removeFromHistory } from "../store/services/farebase-service";
 import { useAppSelector } from "../components/hooks/redux-hooks";
 import { useHistory } from "../components/hooks/use-history";
+import { getUser } from "../store/slices/user/user-selector";
 
 export function HistoryPage() {
   const navigate = useNavigate();
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector(getUser);
   const { history } = useHistory();
 
   const handleRemoveFromHistory = (searchText: string) => {

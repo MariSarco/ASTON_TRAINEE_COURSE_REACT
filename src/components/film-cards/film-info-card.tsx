@@ -18,7 +18,7 @@ export const FilmInfoCard = ({ film }: { film: FilmReadyInterface }) => {
         <LikeButton isFavorite={isFavorite} film={film} />
       </div>
       <div className="flex flex-col gap-y-8 flex-1 text-accent">
-        <h1 className="text-xl font-bold">{nameRu}</h1>
+        <h1 className="text-xl font-bold" data-testid='film-info-name'>{nameRu}</h1>
         <p>{description}</p>
         <div>
           <p>

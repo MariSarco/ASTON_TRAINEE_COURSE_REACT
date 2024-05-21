@@ -5,13 +5,14 @@ import {
 } from "../../store/services/farebase-service";
 import { FilmReadyInterface } from "../../types/types";
 import { useAppSelector } from "../hooks/redux-hooks";
+import { getUser } from "../../store/slices/user/user-selector";
 interface LikeButtonProps {
   isFavorite: boolean;
   film: FilmReadyInterface;
 }
 export const LikeButton = ({ isFavorite, film }: LikeButtonProps) => {
   const navigate = useNavigate();
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector(getUser);
 
   const handleAddToFavoritesHandle = () => {
     if (user?.email) {
@@ -28,7 +29,7 @@ export const LikeButton = ({ isFavorite, film }: LikeButtonProps) => {
   return (
     <>
       {isFavorite ? (
-        <button onClick={handleRemoveFromFavorites}>
+        <button onClick={handleRemoveFromFavorites} data-testid='like-btn-on'>
           <img src="/heart-on-svgrepo-com.svg" alt="Favorite heart on" />
         </button>
       ) : (
@@ -36,6 +37,7 @@ export const LikeButton = ({ isFavorite, film }: LikeButtonProps) => {
           onClick={
             user?.email ? handleAddToFavoritesHandle : () => navigate("/signin")
           }
+          data-testid='like-btn-off'
         >
           <img src="/heart-off-svgrepo-com.svg" alt="Favorite heart off" />
         </button>

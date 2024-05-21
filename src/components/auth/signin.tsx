@@ -1,26 +1,26 @@
 import { useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Form } from "./auth-form";
 import { setUser } from "../../store/slices/user/user-slice";
 import { useAppDispatch } from "../hooks/redux-hooks";
+import { signInUser } from "../../store/services/farebase-service";
 
 const SignIn = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleSignIn = (email: string, password: string) => {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        console.log(user);
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.refreshToken,
-          })
-        );
-        navigate("/");
+    signInUser(email, password)
+      .then((payload) => {
+        if (payload?.user) {
+          dispatch(
+            setUser({
+              email: payload.user.email,
+              id: payload.user.uid,
+              token: payload.user.refreshToken,
+            })
+          );
+          navigate("/");
+        }
       })
       .catch(() => alert("Invalid user!"));
   };

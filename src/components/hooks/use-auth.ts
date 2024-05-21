@@ -1,3 +1,4 @@
+import { getUser } from "../../store/slices/user/user-selector";
 import { removeUser, setUser } from "../../store/slices/user/user-slice";
 import { useAppSelector, useAppDispatch } from "./redux-hooks";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
@@ -15,7 +16,7 @@ const signOut = async () => {
 export function useAuth() {
   const auth = getAuth();
   const dispatch = useAppDispatch();
-  const { email, token, id } = useAppSelector((state) => state.user);
+  const { email, token, id } = useAppSelector(getUser);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

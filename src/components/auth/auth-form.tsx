@@ -17,16 +17,19 @@ const Form: FC<FormProps> = ({ name, title, className, handleClick }) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter email"
+        data-testid='LogInInput'
       />
       <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Enter password"
+        data-testid='PassInput'
       />
       <button
         className={className}
         onClick={() => handleClick(email, password)}
+        data-testid='authBtn'
       >
         {title}
       </button>

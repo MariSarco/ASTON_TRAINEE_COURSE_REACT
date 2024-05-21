@@ -47,6 +47,7 @@ export function Header() {
             <NavLink
               to="/signin"
               className="bg-transparent hover:bg-white text-accent font-semibold hover:text-amber-500 py-1 px-2 border border-accent rounded"
+              data-testid='LogInBtn'
             >
               LogIn
             </NavLink>
